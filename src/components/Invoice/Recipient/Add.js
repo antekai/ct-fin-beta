@@ -44,7 +44,7 @@ const CollectionCreateForm = Form.create()(
   }
 );
 
-export default class InvoiceRecipientAdd extends React.Component {
+export default class RecipientAdd extends React.Component {
   state = {
     visible: false,
   };

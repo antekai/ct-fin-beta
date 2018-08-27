@@ -3,11 +3,17 @@ import { Steps, Button, message } from 'antd';
 import FileUpload from './File/Upload';
 import InputDateAmount from './Input/DateAmount';
 import './Invoice.css'
+import RecipientAdd from './Recipient/Add';
+
 
 const Step = Steps.Step;
 export default class Invoice extends React.Component{
   
-  state={current:0}
+  state={
+    current:0,
+    fileInvoice:null
+    }
+  onChangeFile=this.onChangeFile.bind(this)
 
   next() {
     const current = this.state.current + 1;
@@ -17,6 +23,14 @@ export default class Invoice extends React.Component{
   prev() {
     const current = this.state.current - 1;
     this.setState({ current });
+  }
+
+  onChangeFile(info){
+    const status = info.file.status; 
+    if (status === 'done') {
+      message.success(`${info.file.name} SNEAaaaaaaaaaaaKED`);
+      this.setState({fileInvoice: info.file.name})
+    }
   }
 
 
@@ -34,12 +48,17 @@ export default class Invoice extends React.Component{
             current===0 
             &&  <div>
                   <div className="invoice-title"> Upload Invoice File</div> 
-                  <FileUpload/>
+                  <FileUpload onChange={this.onChangeFile}/>
                 </div> 
           }
           {
             current===1 
-            && <InputDateAmount/>
+            &&  <div>
+                  <InputDateAmount/>
+                  {this.state.fileInvoice}
+                  <RecipientAdd/>
+                </div> 
+              
           }
           {
             current===2 
@@ -49,21 +68,22 @@ export default class Invoice extends React.Component{
         </div>
         <div className="steps-action">
           {
+            current > 0
+            && <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>Previous</Button>
+            
+          }
+          {
             current < 2
-            && <Button type="primary" onClick={() => this.next()}>Next</Button>
+              ? (!this.state.fileInvoice
+                  ? <Button type="primary" disabled>Next</Button>
+                  : <Button type="primary" onClick={() => this.next()}>Next</Button>)
+            :null
           }
           {
             current === 2
             && <Button type="primary" onClick={() => message.success('Processing complete!')}>Done</Button>
           }
-          {
-            current > 0
-            && (
-            <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
-              Previous
-            </Button>
-            )
-          }
+          
         </div>
       </div>
     )

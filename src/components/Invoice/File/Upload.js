@@ -3,7 +3,7 @@ import { Upload, Icon, message } from 'antd';
 
 const Dragger = Upload.Dragger;
 
-const props = {
+const propsDragger = {
   name: 'file',
   multiple: true,
   action: '//jsonplaceholder.typicode.com/posts/',
@@ -21,15 +21,26 @@ const props = {
 };
 
 export default class FileUpload extends React.Component{ 
+
   render(){
     return(
-  <Dragger {...props}>
+  <Dragger {...propsDragger} onChange={this.props.onChange} >
     <p className="ant-upload-drag-icon">
       <Icon type="inbox" />
     </p>
-    <p className="ant-upload-text">Click or drag file to this area to upload</p>
-    <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
+    <p className="ant-upload-text">Click or drag Invoice file to this area to upload</p>
+    <p className="ant-upload-hint">Support for a single or bulk upload.</p>
   </Dragger>
   )
   }
 }
+
+export const FDragger = (props) => (
+  <Dragger {...props}>
+    <p className="ant-upload-drag-icon">
+      <Icon type="inbox" />
+    </p>
+    <p className="ant-upload-text">Click or drag Invoice file to this area to upload</p>
+    <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
+  </Dragger>
+)
