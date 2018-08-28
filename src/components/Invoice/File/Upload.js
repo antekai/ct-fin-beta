@@ -6,6 +6,7 @@ const Dragger = Upload.Dragger;
 const propsDragger = {
   name: 'file',
   multiple: true,
+  showUploadList:false,
   action: '//jsonplaceholder.typicode.com/posts/',
   onChange(info) {
     const status = info.file.status;
@@ -24,11 +25,11 @@ export default class FileUpload extends React.Component{
 
   render(){
     return(
-  <Dragger {...propsDragger} onChange={this.props.onChange} >
+  <Dragger {...propsDragger} onChange={this.props.onChange} className="margin-top" >
     <p className="ant-upload-drag-icon">
       <Icon type="inbox" />
     </p>
-    <p className="ant-upload-text">Click or drag Invoice file to this area to upload</p>
+    <p className="ant-upload-text">Click or drag file to this area to upload</p>
     <p className="ant-upload-hint">Support for a single or bulk upload.</p>
   </Dragger>
   )

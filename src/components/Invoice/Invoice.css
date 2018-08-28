@@ -1,23 +1,54 @@
 .invoice-title{
   font-size: 2rem;
   text-align: center;
-  padding-bottom: 1rem
-}
-.invoice-container{
-  margin: 60px;
-  background-color: #fafafa;
-  min-height: 200px;
 }
 .steps-content {
-  margin-top: 1rem;
+  margin: 2rem;
   border: 1px solid #e9e9e9;
   border-radius: 6px;
   background-color: #fafafa;
-  min-height: 14rem;
-  text-align: center;
+  min-height: 10rem;
   padding-top: 1rem;
 }
 
-.steps-action {
-  margin-top: 1rem;
+
+
+/* Utility Classes */
+.margin-right{
+  margin-right:1rem
+}
+.margin-top{
+  margin-top:1rem;
+}
+.margin-bottom{
+  margin-bottom: 1rem;
+}
+.margin-tb{
+  margin: 4rem 0;
+}
+.margin-rl{
+  margin: 0 2rem;
+}
+.margin{
+  margin:2rem;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+  align-items:baseline;
+}
+.flex-column{
+  display:flex;
+  flex-flow: column wrap;
+}
+.flex-end{
+  justify-content: flex-end;
+}
+.width50{
+  width: 50%
+}
+.bold{
+  font-weight: bold;
 }

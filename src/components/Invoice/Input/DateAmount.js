@@ -1,6 +1,18 @@
 import React from 'react';
-import { DatePicker, InputNumber } from 'antd';
+import { Form, DatePicker, InputNumber } from 'antd';
+import "./DateAmount.css"
 
+const FormItem = Form.Item;
+const formItemLayout = {
+  labelCol: {
+    xs: { span: 24 },
+    sm: { span: 10 },
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 14 },
+  },
+};
 export default class InputDateAmount extends React.Component{
   
   onChangeAmount(value) {
@@ -12,14 +24,23 @@ export default class InputDateAmount extends React.Component{
 
   render(){
     return(
-      <div>
-        <DatePicker onChange={this.onChangeDate} />
+      <div className="margin-rl">
+      <FormItem label="Payment Target(Date)" {...formItemLayout}>
+        <DatePicker 
+          onChange={this.onChangeDate} 
+          className="margin-right" 
+          placeholder="Add Date" 
+        />
+        </FormItem>
+        <FormItem label="Invoice Amount" {...formItemLayout}>
         <InputNumber
           defaultValue={1000}
           formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
           parser={value => value.replace(/\$\s?|(,*)/g, '')}
           onChange={this.onChangeAmount}
+          placeholder="Add Amount"
         />
+        </FormItem>
       </div>
     )
   }
