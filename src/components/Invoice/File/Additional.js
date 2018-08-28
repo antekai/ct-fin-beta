@@ -7,7 +7,7 @@ const FileAdditional = ({filename}) =>{
   
   return(
     <div className={`margin flex-container`}>
-        <div><span className="bold">Additional Files:</span> {filename.map(f => <li>{f}</li> )}</div>
+        <div><span className="bold">Additional Files:</span> {filename.map((f,index) => <li key={index}>{f}</li> )}</div>
         <TextArea
           className={`margin-rl width50`} 
           placeholder="Add file description" 
