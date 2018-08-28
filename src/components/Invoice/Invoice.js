@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider,Steps, Button, message } from 'antd';
+import { Divider,Steps, Button, message, Tooltip } from 'antd';
 import FileUpload from './File/Upload';
 import InputDateAmount from './Input/DateAmount';
 import {RecipientForm} from './Recipient/Add';
@@ -158,7 +158,7 @@ export default class Invoice extends React.Component{
             current < 2
             // && <Button type="primary" className="margin-right" onClick={() => this.nextStep()}>Next</Button> // helper for dev
               ? (!this.state.invoiceFileName
-                  ? <Button type="primary" className="margin-right" disabled>Next</Button>
+                  ? <Tooltip title="Upload a file to move to next step"><Button type="primary" className="margin-right" disabled>Next</Button></Tooltip>
                   : <Button type="primary" className="margin-right" onClick={() => this.nextStep()}>Next</Button>)
               :null
           }
