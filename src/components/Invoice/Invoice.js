@@ -2,10 +2,10 @@ import React from 'react';
 import { Divider,Steps, Button, message } from 'antd';
 import FileUpload from './File/Upload';
 import InputDateAmount from './Input/DateAmount';
-import './Invoice.css'
 import {RecipientForm} from './Recipient/Add';
 import FileAdditional from './File/Additional';
-import RecipientInfo from './Recipient/Info'
+import RecipientInfo from './Recipient/Info';
+import './Invoice.css';
 
 const Step = Steps.Step;
 export default class Invoice extends React.Component{
@@ -143,10 +143,7 @@ export default class Invoice extends React.Component{
                 </div> 
               
           }
-          {
-            // current===2 
-            // && <InputDateAmount/>
-          }
+
         {/* --------------------------------------- */}
         {/* ---------- USER FLOW CONTROL ---------- */}
         {/* --------------------------------------- */}
