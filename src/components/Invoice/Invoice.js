@@ -13,6 +13,7 @@ export default class Invoice extends React.Component {
     currentScreen: 0,
     invoiceFileName: null,
     additionalFiles: [],
+    additionalFilesDescription: null,
     invoiceDate: null,
     invoiceAmount: null,
     recipientModalVisible: false,
@@ -48,6 +49,10 @@ export default class Invoice extends React.Component {
       this.setState({ additionalFiles: info.fileList.map(ar => ar.name) });
     }
   };
+  removeAdditionalFiles = () => this.setState({ additionalFiles: [] });
+  onChangeDescription = e =>
+    this.setState({ additionalFilesDescription: e.target.value });
+
   //Invoice Date and amount methods
   onChangeAmount = value => {
     this.setState({ invoiceAmount: value });
@@ -83,6 +88,11 @@ export default class Invoice extends React.Component {
   };
   saveFormRef = formRef => {
     this.formRef = formRef;
+  };
+  // Post request to a backend API to store state (not implemented)
+  handleSubmitInvoice = () => {
+    message.success("Processing complete!");
+    console.log(this.state);
   };
   // Notification
   openNotification = () => {
@@ -141,6 +151,8 @@ export default class Invoice extends React.Component {
                 <FileAdditional
                   className="margin-tb"
                   filename={this.state.additionalFiles}
+                  onChangeDescription={this.onChangeDescription}
+                  remove={this.removeAdditionalFiles}
                 />
               )}
               <FileUpload onChange={this.onChangeAdditionalFile} />
@@ -181,7 +193,7 @@ export default class Invoice extends React.Component {
                 <Button
                   type="primary"
                   className="margin-right"
-                  onClick={() => message.success("Processing complete!")}
+                  onClick={this.handleSubmitInvoice}
                 >
                   Done
                 </Button>
