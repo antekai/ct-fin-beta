@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, Steps, Button, message, Tooltip } from "antd";
+import { Divider, Steps, Button, message, Tooltip, notification } from "antd";
 import { FileUpload } from "./File/Upload";
 import { RecipientForm } from "./Recipient/Add";
 import { FileAdditional } from "./File/Additional";
@@ -83,6 +83,14 @@ export default class Invoice extends React.Component {
   };
   saveFormRef = formRef => {
     this.formRef = formRef;
+  };
+  // Notification
+  openNotification = () => {
+    notification.open({
+      message: "State is logged at console",
+      description:
+        "You can view how user actions are stored in state at your browser console"
+    });
   };
 
   render() {
@@ -179,6 +187,10 @@ export default class Invoice extends React.Component {
             </div>
           </div>
         </div>
+        <Button type="ghost" onClick={this.openNotification}>
+          Notification
+        </Button>
+        ,
       </div>
     );
   }
