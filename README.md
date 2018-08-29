@@ -13,6 +13,7 @@ Invoice user flow with react and [ant-design](https://ant.design/). This is a st
 git clone https://github.com/antekai/ct-fin-beta.git invoice-app
 cd invoice-app
 yarn install
+yarn start
 ```
 
 ## Features
