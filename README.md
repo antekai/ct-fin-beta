@@ -1,6 +1,6 @@
-# Invoice React-antd
+# Invoice-app
 
-Invoice user flow with react and ant-design. This is a static prototype (no backend service is connected).
+Invoice user flow with react and [ant-design](https://ant.design/). This is a static prototype (no backend service is connected).
 
 ## Table of Contents
 
@@ -10,7 +10,8 @@ Invoice user flow with react and ant-design. This is a static prototype (no back
 ## Installation
 
 ```sh
-git clone https://github.com/antekai/ct-fin-beta.git
+git clone https://github.com/antekai/ct-fin-beta.git invoice-app
+cd invoice-app
 yarn install
 ```
 
@@ -18,10 +19,8 @@ yarn install
 
 - Boostrapping: create-react-app, react-app-rewired
 - UI-kit: Ant-design
-- Feature folder structure
-- Path based component naming
-- State management: Local(react), Flat state
+- Folder Structure: based on Feature and Functionality
+- Component naming: based on Relative-Path
+- State management: Local(react), Flat state, Single stateful component (Invoice.js)
 - Form validation
-- Utility css
-
-
+- Vanilla css (no preprocessor)
