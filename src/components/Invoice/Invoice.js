@@ -7,6 +7,7 @@ import FileAdditional from "./File/Additional";
 import RecipientInfo from "./Recipient/Info";
 import "./Invoice.css";
 import { ScreenOne } from "./Screens/One";
+import { ScreenTwoRow1 } from "./Screens/TwoRow1";
 
 const Step = Steps.Step;
 export default class Invoice extends React.Component {
@@ -101,38 +102,18 @@ export default class Invoice extends React.Component {
           {/* --------------------------------------- */}
           {/* ---------- USER FLOW SCREENS ---------- */}
           {/* --------------------------------------- */}
-          {current === 0 && <ScreenOne onChange={this.onChangeInvoiceFile} />}
+          {current === 0 && <ScreenOne onUpload={this.onChangeInvoiceFile} />}
           {current > 0 && (
             <div>
-              <div className={`margin flex-container`}>
-                <div>
-                  <InputDateAmount />
-                </div>
-                <div>
-                  <div>
-                    <span className="bold">Invoice File: </span>
-                    {invoiceFileName}
-                  </div>
-                  {!recipientName ? (
-                    <Button type="primary" onClick={this.showModalRecipient}>
-                      Add Recipient
-                    </Button>
-                  ) : (
-                    <div>
-                      <RecipientInfo
-                        name={recipientName}
-                        surname={recipientSurname}
-                        address={recipientAddress}
-                        phone={recipientPhone}
-                      />
-                      <Button type="primary" onClick={this.showModalRecipient}>
-                        Edit Recipient
-                      </Button>
-                    </div>
-                  )}
-                </div>
-              </div>
-
+              <ScreenTwoRow1
+                fileName={invoiceFileName}
+                addOrEditRecipientCondition={!recipientName}
+                onClickModal={this.showModalRecipient}
+                name={recipientName}
+                surname={recipientSurname}
+                address={recipientAddress}
+                phone={recipientPhone}
+              />
               <RecipientForm
                 wrappedComponentRef={this.saveFormRef}
                 visible={recipientModalVisible}
