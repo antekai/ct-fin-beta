@@ -1,10 +1,12 @@
 import React from "react";
-import InputDateAmount from "../Input/DateAmount";
+import { InputDateAmount } from "../Input/DateAmount";
 import RecipientInfo from "../Recipient/Info";
 import { Button } from "antd";
 
 export const ScreenTwoRow1 = ({
   fileName,
+  onChangeDate,
+  onChangeAmount,
   addOrEditRecipientCondition,
   onClickModal,
   name,
@@ -14,7 +16,10 @@ export const ScreenTwoRow1 = ({
 }) => (
   <div className={`margin flex-container`}>
     <div>
-      <InputDateAmount />
+      <InputDateAmount
+        onChangeDate={onChangeDate}
+        onChangeAmount={onChangeAmount}
+      />
     </div>
     <div>
       <div>

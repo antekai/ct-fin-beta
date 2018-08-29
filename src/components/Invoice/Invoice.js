@@ -1,13 +1,11 @@
 import React from "react";
 import { Divider, Steps, Button, message, Tooltip } from "antd";
 import { FileUpload } from "./File/Upload";
-import InputDateAmount from "./Input/DateAmount";
 import { RecipientForm } from "./Recipient/Add";
 import FileAdditional from "./File/Additional";
-import RecipientInfo from "./Recipient/Info";
-import "./Invoice.css";
 import { ScreenOne } from "./Screens/One";
 import { ScreenTwoRow1 } from "./Screens/TwoRow1";
+import "./Invoice.css";
 
 const Step = Steps.Step;
 export default class Invoice extends React.Component {
@@ -15,6 +13,8 @@ export default class Invoice extends React.Component {
     current: 0,
     invoiceFileName: null,
     additionalFiles: [],
+    invoiceDate: null,
+    invoiceAmount: null,
     recipientModalVisible: false,
     recipientName: null,
     recipientSurname: null,
@@ -40,15 +40,23 @@ export default class Invoice extends React.Component {
       message.success(`${info.file.name} uploaded!`);
       this.setState({ invoiceFileName: info.file.name });
     }
-    console.log(info.fileList.length);
   };
   onChangeAdditionalFile = info => {
     const status = info.file.status;
     if (status === "done") {
       message.success(`${info.file.name} uploaded!`);
       this.setState({ additionalFiles: info.fileList.map(ar => ar.name) });
-      console.log(info.fileList.map(ar => ar.name));
+      // console.log(info.fileList.map(ar => ar.name));
     }
+  };
+  //Invoice Date and amount methods
+  onChangeAmount = value => {
+    // console.log("changed", value);
+    this.setState({ invoiceAmount: value });
+  };
+  onChangeDate = (date, dateString) => {
+    // console.log(date, dateString);
+    this.setState({ invoiceDate: dateString });
   };
 
   // AddRecipient ModalForm methods
@@ -66,7 +74,7 @@ export default class Invoice extends React.Component {
       if (err) {
         return;
       }
-      console.log("Received values of form: ", values);
+      // console.log("Received values of form: ", values);
       this.setState({
         recipientModalVisible: false,
         recipientName: values.Name,
@@ -81,7 +89,6 @@ export default class Invoice extends React.Component {
   };
 
   render() {
-    console.log(this.state.additionalFiles);
     const {
       current,
       recipientName,
@@ -91,6 +98,7 @@ export default class Invoice extends React.Component {
       invoiceFileName,
       recipientModalVisible
     } = this.state;
+    console.log(this.state);
     return (
       <div className="margin">
         <Steps current={current}>
@@ -99,14 +107,15 @@ export default class Invoice extends React.Component {
           <Step title={"Save Invoice Data"} />
         </Steps>
         <div className="steps-content">
-          {/* --------------------------------------- */}
           {/* ---------- USER FLOW SCREENS ---------- */}
-          {/* --------------------------------------- */}
+
           {current === 0 && <ScreenOne onUpload={this.onChangeInvoiceFile} />}
           {current > 0 && (
             <div>
               <ScreenTwoRow1
                 fileName={invoiceFileName}
+                onChangeDate={this.onChangeDate}
+                onChangeAmount={this.onChangeAmount}
                 addOrEditRecipientCondition={!recipientName}
                 onClickModal={this.showModalRecipient}
                 name={recipientName}
@@ -131,9 +140,8 @@ export default class Invoice extends React.Component {
             </div>
           )}
 
-          {/* --------------------------------------- */}
           {/* ---------- USER FLOW CONTROL ---------- */}
-          {/* --------------------------------------- */}
+
           <div className={`margin-top margin-bottom flex-container flex-end`}>
             <div>
               {current > 0 && (
