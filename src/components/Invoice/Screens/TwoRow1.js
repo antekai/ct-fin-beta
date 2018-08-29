@@ -1,6 +1,6 @@
 import React from "react";
 import { InputDateAmount } from "../Input/DateAmount";
-import RecipientInfo from "../Recipient/Info";
+import { RecipientInfo } from "../Recipient/Info";
 import { Button } from "antd";
 
 export const ScreenTwoRow1 = ({

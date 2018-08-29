@@ -2,7 +2,7 @@ import React from "react";
 import { Divider, Steps, Button, message, Tooltip } from "antd";
 import { FileUpload } from "./File/Upload";
 import { RecipientForm } from "./Recipient/Add";
-import FileAdditional from "./File/Additional";
+import { FileAdditional } from "./File/Additional";
 import { ScreenOne } from "./Screens/One";
 import { ScreenTwoRow1 } from "./Screens/TwoRow1";
 import "./Invoice.css";

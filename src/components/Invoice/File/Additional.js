@@ -3,7 +3,7 @@ import { Input, Button } from "antd";
 
 const { TextArea } = Input;
 
-const FileAdditional = ({ filename }) => (
+export const FileAdditional = ({ filename }) => (
   <div className={`margin flex-container`}>
     <div>
       <span className="bold">Additional Files:</span>{" "}
@@ -25,5 +25,3 @@ const FileAdditional = ({ filename }) => (
     </div>
   </div>
 );
-
-export default FileAdditional;
