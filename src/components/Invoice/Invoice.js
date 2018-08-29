@@ -46,16 +46,13 @@ export default class Invoice extends React.Component {
     if (status === "done") {
       message.success(`${info.file.name} uploaded!`);
       this.setState({ additionalFiles: info.fileList.map(ar => ar.name) });
-      // console.log(info.fileList.map(ar => ar.name));
     }
   };
   //Invoice Date and amount methods
   onChangeAmount = value => {
-    // console.log("changed", value);
     this.setState({ invoiceAmount: value });
   };
   onChangeDate = (date, dateString) => {
-    // console.log(date, dateString);
     this.setState({ invoiceDate: dateString });
   };
 
@@ -74,7 +71,7 @@ export default class Invoice extends React.Component {
       if (err) {
         return;
       }
-      // console.log("Received values of form: ", values);
+
       this.setState({
         recipientModalVisible: false,
         recipientName: values.Name,
