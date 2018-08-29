@@ -4,8 +4,13 @@ Invoice user flow with react and [ant-design](https://ant.design/). This is a st
 
 ## Table of Contents
 
+- [Preview](<(#preview)>)
 - [Installation](#installation)
 - [Features](#features)
+
+## Preview
+
+URL: https://static-invoice.netlify.com
 
 ## Installation
 
@@ -25,3 +30,4 @@ yarn start
 - State management: Local(react), Flat state, Single stateful component (Invoice.js)
 - Form validation
 - Vanilla css (no preprocessor)
+- Netlify CD
