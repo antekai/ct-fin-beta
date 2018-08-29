@@ -16,11 +16,12 @@ yarn install
 
 ## Features
 
-- Boiler: create-react-app
+- Boostrapping: create-react-app, react-app-rewired
 - UI-kit: Ant-design
 - Feature folder structure
 - Path based component naming
 - State management: Local(react), Flat state
+- Form validation
 - Utility css
 
 
