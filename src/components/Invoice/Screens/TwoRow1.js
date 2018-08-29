@@ -14,14 +14,14 @@ export const ScreenTwoRow1 = ({
   address,
   phone
 }) => (
-  <div className={`margin flex-container`}>
+  <div className={`flex-container`}>
     <div>
       <InputDateAmount
         onChangeDate={onChangeDate}
         onChangeAmount={onChangeAmount}
       />
     </div>
-    <div>
+    <div className={`margin-rl`}>
       <div>
         <span className="bold">Invoice File: </span>
         {fileName}

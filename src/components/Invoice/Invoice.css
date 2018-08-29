@@ -1,4 +1,4 @@
-.invoice-title{
+.invoice-title {
   font-size: 2rem;
   text-align: center;
 }
@@ -10,44 +10,51 @@
   min-height: 10rem;
   padding-top: 1rem;
 }
-
+@media only screen and (max-width: 768px) {
+  .steps-content {
+    margin: 0.5rem;
+  }
+}
 
 /* Utility Classes */
-.margin-right{
-  margin-right:1rem
+.margin-right {
+  margin-right: 1rem;
 }
-.margin-top{
-  margin-top:1rem;
+.margin-top {
+  margin-top: 1rem;
 }
-.margin-bottom{
+.margin-bottom {
   margin-bottom: 1rem;
 }
-.margin-tb{
+.margin-tb {
   margin: 4rem 0;
 }
-.margin-rl{
+.margin-rl {
   margin: 0 2rem;
 }
-.margin{
-  margin:2rem;
+.margin {
+  margin: 2rem;
 }
 
-.flex-container{
+.flex-container {
   display: flex;
   justify-content: space-between;
-  flex-wrap:wrap;
-  align-items:baseline;
+  flex-wrap: wrap;
+  align-items: baseline;
 }
-.flex-column{
-  display:flex;
+.flex-column {
+  display: flex;
   flex-flow: column wrap;
 }
-.flex-end{
+.flex-end {
   justify-content: flex-end;
 }
-.width50{
-  width: 50%
+.width50 {
+  width: 50%;
 }
-.bold{
+.bold {
   font-weight: bold;
+}
+.center {
+  text-align: center;
 }
