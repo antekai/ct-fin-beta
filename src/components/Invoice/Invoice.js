@@ -10,7 +10,7 @@ import "./Invoice.css";
 const Step = Steps.Step;
 export default class Invoice extends React.Component {
   state = {
-    current: 0,
+    currentScreen: 0,
     invoiceFileName: null,
     additionalFiles: [],
     invoiceDate: null,
@@ -24,13 +24,13 @@ export default class Invoice extends React.Component {
 
   // user-flow control methods
   nextStep() {
-    const current = this.state.current + 1;
-    this.setState({ current });
+    const currentScreen = this.state.currentScreen + 1;
+    this.setState({ currentScreen });
   }
 
   prevStep() {
-    const current = this.state.current - 1;
-    this.setState({ current });
+    const currentScreen = this.state.currentScreen - 1;
+    this.setState({ currentScreen });
   }
 
   // File upload methods
@@ -95,7 +95,7 @@ export default class Invoice extends React.Component {
 
   render() {
     const {
-      current,
+      currentScreen,
       recipientName,
       recipientSurname,
       recipientAddress,
@@ -106,7 +106,7 @@ export default class Invoice extends React.Component {
     console.log(this.state);
     return (
       <div className="margin">
-        <Steps current={current}>
+        <Steps current={currentScreen}>
           <Step title={"Add Invoice File"} />
           <Step title={"Add Invoice Details"} />
           <Step title={"Save Invoice Data"} />
@@ -114,8 +114,10 @@ export default class Invoice extends React.Component {
         <div className="steps-content">
           {/* ---------- USER FLOW SCREENS ---------- */}
 
-          {current === 0 && <ScreenOne onUpload={this.onChangeInvoiceFile} />}
-          {current > 0 && (
+          {currentScreen === 0 && (
+            <ScreenOne onUpload={this.onChangeInvoiceFile} />
+          )}
+          {currentScreen > 0 && (
             <div>
               <ScreenTwoRow1
                 fileName={invoiceFileName}
@@ -149,7 +151,7 @@ export default class Invoice extends React.Component {
 
           <div className={`margin-top margin-bottom flex-container flex-end`}>
             <div>
-              {current > 0 && (
+              {currentScreen > 0 && (
                 <Button
                   className="margin-right"
                   onClick={() => this.prevStep()}
@@ -157,7 +159,7 @@ export default class Invoice extends React.Component {
                   Previous
                 </Button>
               )}
-              {current < 2 ? (
+              {currentScreen < 2 ? (
                 // && <Button type="primary" className="margin-right" onClick={() => this.nextStep()}>Next</Button> // helper for dev
                 !this.state.invoiceFileName ? (
                   <Tooltip title="Upload a file to move to next step">
@@ -175,7 +177,7 @@ export default class Invoice extends React.Component {
                   </Button>
                 )
               ) : null}
-              {current === 2 && (
+              {currentScreen === 2 && (
                 <Button
                   type="primary"
                   className="margin-right"
