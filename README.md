@@ -13,7 +13,7 @@ Invoice user flow with react and [ant-design](https://ant.design/). This is a st
 URL: https://static-invoice.netlify.com
 
 ## Installation
-Install Node.js, then:
+Install [Node.js](https://nodejs.org/en/), [Git](https://git-scm.com/) and then:
 ```sh
 git clone https://github.com/antekai/ct-fin-beta.git invoice-app
 cd invoice-app
