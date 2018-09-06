@@ -23,11 +23,9 @@ yarn start
 
 ## Features
 
-- Boostrapping: create-react-app, react-app-rewired
 - UI-kit: Ant-design
 - Folder Structure: based on Feature and Functionality
 - Component naming: based on Relative-Path
 - State management: Local(react), Flat state, Single stateful component (Invoice.js)
 - Form validation
-- Vanilla css (no preprocessor)
 - Netlify CD
